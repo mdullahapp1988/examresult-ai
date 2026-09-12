@@ -1,4 +1,4 @@
-      <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
@@ -7,200 +7,222 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             margin: 0;
             padding: 20px;
             color: #333;
         }
         .container {
-            max-width: 850px;
+            max-width: 800px;
             margin: 0 auto;
-            background: #fff;
+            background: #ffffff;
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
-        .header {
+        .profile-card {
             text-align: center;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            background: linear-gradient(to bottom, #ffffff, #f9fbfc);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e1e8ed;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
-        .header h2 {
+        .developer-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #2980b9;
+            box-shadow: 0 4px 12px rgba(41, 128, 185, 0.3);
+            margin-bottom: 12px;
+        }
+        .profile-card h2 {
+            margin: 0 0 5px;
+            color: #2c3e50;
+            font-size: 24px;
+        }
+        .profile-card p {
             margin: 0;
-            font-size: 26px;
-            transition: color 0.3s;
+            color: #2980b9;
+            font-weight: 600;
+            font-size: 15px;
         }
-        .profile-section {
+        .app-title-area {
             text-align: center;
             margin-bottom: 25px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 15px;
         }
-        .profile-section h3 {
-            margin: 8px 0 2px;
-            color: #34495e;
+        .app-title-area h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #1a252f;
         }
-        .profile-section span {
-            color: #2980b9;
+        .app-title-area p {
+            color: #7f8c8d;
+            margin: 5px 0 0;
             font-size: 14px;
-            font-weight: 600;
         }
-        .section-box {
-            background: #f9f9f9;
-            border: 1px solid #e1e1e1;
+        .card-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             margin-bottom: 20px;
         }
-        .section-box h4 {
+        .card-box h3 {
             margin-top: 0;
-            color: #2c3e50;
+            color: #2d3748;
+            font-size: 18px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
         }
         label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            font-size: 14px;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 13px;
+            color: #4a5568;
         }
-        input[type="file"], input[type="text"], select, textarea {
+        input[type="text"], input[type="file"], select, textarea {
             width: 100%;
             padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
+            margin-bottom: 12px;
+            border: 1px solid #cbd5e0;
             border-radius: 6px;
             font-size: 14px;
             box-sizing: border-box;
+            background: #fff;
         }
-        .row-group {
+        .grid-2 {
             display: flex;
             gap: 15px;
         }
-        .row-group > div {
+        .grid-2 > div {
             flex: 1;
         }
-        button {
-            background-color: #27ae60;
+        .btn {
+            background-color: #2f855a;
             color: white;
-            padding: 12px 20px;
+            padding: 12px;
             border: none;
             border-radius: 6px;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
             width: 100%;
             font-weight: bold;
-            margin-bottom: 10px;
+            transition: background 0.2s;
         }
-        button:hover {
-            background-color: #219653;
+        .btn:hover {
+            background-color: #276749;
         }
-        .voice-btn {
-            background-color: #e74c3c;
+        .btn-voice {
+            background-color: #c53030;
         }
-        .voice-btn:hover {
-            background-color: #c0392b;
+        .btn-voice:hover {
+            background-color: #9b2c2c;
         }
-        .preview-output {
-            background: #fff;
-            border: 2px dashed #2980b9;
-            padding: 25px;
+        .preview-box {
+            background: #ffffff;
+            border: 2px dashed #3182ce;
+            padding: 20px;
             margin-top: 20px;
-            border-radius: 6px;
+            border-radius: 8px;
             display: none;
-            position: relative;
         }
-        /* লোগো যেন পুরোটা একদম সুন্দরভাবে শো করে */
-        .preview-header {
+        .preview-top {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
+            border-bottom: 2px solid #2d3748;
+            padding-bottom: 12px;
             margin-bottom: 15px;
         }
-        .preview-logo {
-            width: 80px;
-            height: 80px;
-            border: 2px solid #2980b9;
-            border-radius: 8px;
+        .preview-logo-area {
+            width: 75px;
+            height: 75px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #ffffff;
-            font-size: 11px;
-            font-weight: bold;
-            color: #2980b9;
-            text-align: center;
+            background: #fff;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 3px;
+            font-size: 11px;
+            color: #718096;
+            text-align: center;
         }
-        .preview-logo img {
+        .preview-logo-area img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* লোগোর সম্পূর্ণ ছবি নিখুঁতভাবে দেখাবে কোনো ক্রপ ছাড়াই */
+            object-fit: contain;
         }
-        .official-seal {
-            border: 2px dashed #e74c3c;
-            color: #e74c3c;
-            width: 110px;
-            height: 110px;
+        .seal-circle {
+            border: 2px dashed #e53e3e;
+            color: #e53e3e;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: bold;
-            transform: rotate(-15deg);
+            transform: rotate(-12deg);
             margin: 20px auto 0 auto;
-            background: rgba(231, 76, 60, 0.03);
+            background: rgba(229, 62, 62, 0.02);
         }
-        .ad-space {
-            border: 2px dashed #bdc3c7;
-            background: #ecf0f1;
-            padding: 15px;
+        .footer-ad {
             text-align: center;
-            color: #7f8c8d;
+            background: #edf2f7;
+            padding: 12px;
             border-radius: 6px;
-            font-size: 13px;
+            color: #718096;
+            font-size: 12px;
             margin-top: 20px;
+            border: 1px dashed #cbd5e0;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- লোগো ও ব্র্যান্ডিং -->
-    <div class="profile-section">
-        <h3>Mohammadullah Sikder</h3>
-        <span>Founder & Developer</span>
+    <!-- প্রফেশনাল ডেভেলপার প্রোফাইল কার্ড (আপনার ছবিসহ) -->
+    <div class="profile-card">
+        <img src="https://i.ibb.co.com/65x7193/1789182988430.png" alt="Mohammadullah Sikder" class="developer-avatar">
+        <h2>Mohammadullah Sikder</h2>
+        <p>Founder & Developer</p>
     </div>
 
-    <div class="header">
-        <h2 id="mainTitleStyle" style="color: #2c3e50;">ExamResult AI Platform</h2>
-        <p>সম্পূর্ণ রঙিন লোগো, সিল, ফরম ও প্রশ্নপত্র জেনারেটর</p>
+    <div class="app-title-area">
+        <h1>ExamResult AI Platform</h1>
+        <p>স্মার্ট লোগো, সিল, ফরম ও প্রশ্নপত্র জেনারেটর</p>
     </div>
 
-    <!-- ডিজাইন, কালার, লোগো ও সিল কাস্টমাইজেশন সেকশন -->
-    <div class="section-box">
-        <h4>🎨 লোগো, সিল ও ডিজাইন কাস্টমাইজেশন</h4>
-        <div class="row-group">
+    <!-- কাস্টমাইজেশন প্যানেল -->
+    <div class="card-box">
+        <h3>🎨 লোগো, সিল ও ডিজাইন কনফিগারেশন</h3>
+        <div class="grid-2">
             <div>
                 <label>শিরোনামের কালার:</label>
-                <input type="color" id="titleColorPicker" value="#2c3e50" onchange="changeTitleColor()" style="height: 40px; padding: 5px;">
+                <input type="color" id="titleColorPicker" value="#2c3e50" onchange="updateTheme()" style="height: 38px; padding: 4px;">
             </div>
             <div>
                 <label>প্রতিষ্ঠানের রঙিন লোগো আপলোড:</label>
                 <input type="file" id="logoInput" accept="image/*">
             </div>
         </div>
-        <div class="row-group">
+        <div class="grid-2">
             <div>
-                <label>সিলের টেক্সট (যেমন: প্রধান শিক্ষক ও সিল):</label>
+                <label>সিলের টেক্সট:</label>
                 <input type="text" id="sealText" value="প্রধান শিক্ষক ও সিল">
             </div>
             <div>
                 <label>টেমপ্লেট স্টাইল:</label>
-                <select id="designStyle" onchange="changeTitleColor()">
+                <select id="designStyle">
                     <option value="classic">ক্লাসিক ও ফরমাল</option>
                     <option value="modern">মডার্ন ও স্টাইলিশ</option>
                 </select>
@@ -208,61 +230,51 @@
         </div>
     </div>
 
-    <!-- এআই ভয়েস কমান্ড ও ইউনিভার্সাল জেনারেটর সেকশন -->
-    <div class="section-box">
-        <h4>🎙️ এআই ভয়েস কমান্ড ও স্মার্ট জেনারেটর</h4>
+    <!-- এআই ভয়েস ও ফরম জেনারেটর প্যানেল -->
+    <div class="card-box">
+        <h3>🎙️ এআই ভয়েস কমান্ড ও কন্টেন্ট জেনারেটর</h3>
         
         <label>১. মুখে বলে বা লিখে নির্দেশ দিন:</label>
         <textarea id="aiCommand" rows="3" placeholder="যেমন: 'প্রথম শ্রেণীর বাংলা প্রশ্ন এবং সিলসহ তৈরি করো'..."></textarea>
 
-        <button class="voice-btn" onclick="startVoiceCommand()">🎙️ ভয়েস কমান্ড দিন (কথা বলুন)</button>
+        <button class="btn btn-voice" onclick="startVoiceCommand()" style="margin-bottom: 12px;">🎙️ ভয়েস কমান্ড দিন (কথা বলুন)</button>
 
         <label>২. অথবা প্রশ্নপত্র বা ফরমের ছবি আপলোড করুন:</label>
         <input type="file" id="imageInput" accept="image/*">
 
         <label>প্রতিষ্ঠান বা সংস্থার নাম:</label>
-        <input type="text" id="institutionName" value="আলহাজ্ব সিরাজুল হক নূরানী ও হাফেজিয়া মাদ্রাসা">
+        <input type="text" id="institutionName" placeholder="আপনার প্রতিষ্ঠানের নাম এখানে লিখুন...">
 
-        <button onclick="generateAdvancedContentWithLogo()">সম্পূর্ণ লোগো ও সিলসহ ফরম্যাট তৈরি করুন</button>
+        <button class="btn" onclick="generatePlatformContent()">লোগো ও সিলসহ ফরম্যাট তৈরি করুন</button>
 
-        <!-- আউটপুট প্রিভিউ বক্স -->
-        <div class="preview-output" id="outputBox">
-            <div class="preview-header">
-                <div class="preview-logo" id="logoContainer">লোগো</div>
+        <!-- প্রিভিউ আউটপুট সেকশন -->
+        <div class="preview-box" id="outputBox">
+            <div class="preview-top">
+                <div class="preview-logo-area" id="logoContainer">লোগো</div>
                 <div style="flex-grow: 1; text-align: center; padding: 0 10px;">
                     <h3 style="margin: 0; color:#2c3e50;" id="outTitle"></h3>
                     <p style="margin: 3px 0 0; font-weight:bold; color:#555; font-size: 13px;" id="outSub"></p>
                 </div>
-                <div class="preview-logo" style="border: none; background: transparent; visibility: hidden;"></div>
+                <div class="preview-logo-area" style="border: none; background: transparent; visibility: hidden;"></div>
             </div>
             
             <div id="outContent"></div>
 
-            <!-- অফিশিয়াল রঙিন সিল -->
-            <div class="official-seal" id="outSeal">
-                <span id="sealDisplayText">প্রধান শিক্ষক<br>মোহাম্মদউল্লাহ সিকদার</span>
+            <div class="seal-circle" id="outSeal">
+                <span id="sealDisplayText">প্রধান শিক্ষক</span>
             </div>
         </div>
     </div>
 
-    <!-- ফিউচার মোনেটাইজেশন অ্যাড স্পেস -->
-    <div class="ad-space">
+    <div class="footer-ad">
         📢 Advertisement Space (Google AdSense / AdMob Code Will Go Here)
     </div>
 </div>
 
 <script>
-    function changeTitleColor() {
+    function updateTheme() {
         const color = document.getElementById('titleColorPicker').value;
-        const style = document.getElementById('designStyle').value;
-        const titleElem = document.getElementById('mainTitleStyle');
-        
-        titleElem.style.color = color;
-        if(style === 'modern') {
-            titleElem.style.fontFamily = "'Courier New', Courier, monospace";
-        } else {
-            titleElem.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
-        }
+        document.querySelector('.app-title-area h1').style.color = color;
     }
 
     function startVoiceCommand() {
@@ -281,11 +293,10 @@
         recognition.onresult = function(event) {
             const speechText = event.results[0][0].transcript;
             document.getElementById('aiCommand').value = speechText;
-            alert('ভয়েস কমান্ড গ্রহণ করা হয়েছে: ' + speechText);
         };
     }
 
-    function generateAdvancedContentWithLogo() {
+    function generatePlatformContent() {
         const commandText = document.getElementById('aiCommand').value;
         const instName = document.getElementById('institutionName').value;
         const sealInput = document.getElementById('sealText').value;
@@ -293,17 +304,17 @@
         const logoInput = document.getElementById('logoInput');
         
         let displayTitle = commandText.trim() !== "" ? commandText : "এআই জেনারেটেড ফরম ও প্রশ্নপত্র";
+        let finalInstName = instName.trim() !== "" ? instName : "প্রতিষ্ঠানের নাম";
         
-        document.getElementById('outTitle').innerText = instName;
+        document.getElementById('outTitle').innerText = finalInstName;
         document.getElementById('outSub').innerText = displayTitle;
         document.getElementById('sealDisplayText').innerHTML = sealInput.replace(/ /g, '<br>');
 
-        // লোগো যাতে পুরোটা নিখুঁতভাবে শো করে
         const logoContainer = document.getElementById('logoContainer');
         if(logoInput.files && logoInput.files[0]) {
             const reader = new FileReader();
             reader.onload = function(e) {
-                logoContainer.innerHTML = `<img src="${e.target.result}" alt="Full Logo">`;
+                logoContainer.innerHTML = `<img src="${e.target.result}" alt="Logo">`;
             }
             reader.readAsDataURL(logoInput.files[0]);
         } else {
@@ -312,7 +323,7 @@
         
         let htmlContent = `
             <div style="line-height: 1.8; font-size: 14px; margin-top: 10px;">
-                <p><b>পরীক্ষার বা ফরমের বিবরণ:</b> ${displayTitle}</p>
+                <p><b>বিবরণ:</b> ${displayTitle}</p>
                 <ul style="padding-left: 20px; margin: 5px 0;">
                     <li>১. নির্ধারিত বিষয় এবং মূল কাঠামো সফলভাবে বিন্যস্ত হয়েছে।</li>
                     <li>২. প্রশ্নপত্র বা ফরমের মান ও নির্দেশিকা নিখুঁতভাবে তৈরি।</li>
@@ -323,11 +334,9 @@
         
         document.getElementById('outContent').innerHTML = htmlContent;
         outputBox.style.display = 'block';
-        alert('সম্পূর্ণ লোগো ও সিলসহ ফরম্যাট তৈরি করা হয়েছে!');
     }
 </script>
 
 </body>
-    </html>
-    </html>
+                  </html>
       
